@@ -1,0 +1,96 @@
+==============================================================================
+CONTENTS						*autosave-contents*
+
+    1. Introduction				|autosave-intro|
+    2. Installation				|autosave-installation|
+    3. Usage					|autosave-usage|
+    4. Customization				|autosave-customization|
+    5. License					|autosave-license|
+
+==============================================================================
+1. Introduction					*autosave-intro*
+
+autosave.nvim is a Neovim plugin that provides automatic saving functionality.
+It allows you to toggle autosave on and off, check the current autosave status,
+and customize the plugin's behavior.
+
+==============================================================================
+2. Installation					*autosave-installation*
+
+To install `autosave.nvim`, use your favorite plugin manager.
+
+Using lazy.nvim:
+>lua
+	require("lazy").setup({
+	    {
+	        "brianhuster/autosave.nvim",
+	    },
+	})
+	require('autosave').setup()
+<
+
+Using packer.nvim:
+>lua
+	require('packer').startup(function()
+	    use {
+	        "brianhuster/autosave.nvim",
+	        config = function()
+	            require('autosave').setup()
+	        end
+	    }
+	end)
+<
+
+Using vim-plug:
+>vim
+	call plug#begin('~/.config/nvim/plugged')
+
+	Plug 'brianhuster/autosave.nvim'
+
+	call plug#end()
+	lua require('autosave').setup()
+<
+
+==============================================================================
+3. Usage						*autosave-usage*
+
+COMMANDS
+
+                                                *:AS toggle*
+:AS toggle        Toggle autosave on and off.
+
+                                                *:AS status*
+:AS status        Check the current autosave status.
+
+==============================================================================
+4. Customization				*autosave-customization*
+
+You can customize the behavior of `autosave.nvim` by providing a configuration
+table to the `setup` function.
+
+Using Lua:
+>lua
+	require('autosave').setup({
+	    command = "MyAutoSave",    -- Command name for autosave.nvim
+	    toggle_arg = "toggleautosave",  -- Argument to toggle autosave
+	    status_arg = "autosavestatus",  -- Argument to check autosave status
+	})
+<
+
+Using VimScript:
+>vim
+	lua require('autosave').setup({
+	    command = "MyAutoSave",    -- Command name for autosave.nvim
+	    toggle_arg = "toggleautosave",  -- Argument to toggle autosave
+	    status_arg = "autosavestatus",  -- Argument to check autosave status
+	})
+<
+
+==============================================================================
+5. License						*autosave-license*
+
+This project is licensed under the MIT License. For more details, see the
+LICENSE file in the project repository.
+
+==============================================================================
+
