@@ -24,6 +24,7 @@ Using lazy.nvim:
 	require("lazy").setup({
 	    {
 	        "brianhuster/autosave.nvim",
+            lazy=false,
 	    },
 	})
 	require('autosave').setup()
@@ -57,10 +58,10 @@ Using vim-plug:
 COMMANDS
 
                                                 *:AS toggle*
-:AS toggle        Toggle autosave on and off.
+:autosave toggle        Toggle autosave on and off.
 
                                                 *:AS status*
-:AS status        Check the current autosave status.
+:autosave status        Check the current autosave status.
 
 ==============================================================================
 4. Customization				*autosave-customization*

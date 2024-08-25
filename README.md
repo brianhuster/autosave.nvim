@@ -10,6 +10,7 @@ To install autosave.nvim, you can use your favorite plugin manager. For example,
 require("lazy").setup({
     {
         "brianhuster/autosave.nvim",
+        lazy=false,
     },
 })
 require('autosave').setup()
@@ -37,9 +38,9 @@ Here's an example of how to customize autosave.nvim:
 
 ```lua
 require('autosave').setup({
-    command = "MyAutoSave",
-    toggle_arg = "toggleautosave",
-    status_arg = "autosavestatus",
+    command = "AS",
+    toggle_arg = "toggle",
+    status_arg = "status",
 })
 ```
 
