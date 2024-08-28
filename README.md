@@ -46,4 +46,6 @@ require('autosave').setup({
 
 ## Contributing
 
-If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request on this GitHub repository.
+If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request on this GitHub repository. Goodbye and see you next time!
+
+

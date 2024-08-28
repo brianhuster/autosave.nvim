@@ -9,6 +9,10 @@ local default_config = {
 }
 
 function M.save()
+    -- check if the buffer is a file
+    if vim.bo.buftype ~= "" then
+        return
+    end
     if autosave_enabled and vim.bo.modified then
         vim.cmd('write')
     end
@@ -34,7 +38,7 @@ end
 function M.setup(user_config)
     local config = vim.tbl_deep_extend("force", default_config, user_config or {})
 
-    vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged"}, {
+    vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged", "TextChangedI"}, {
         callback = M.save,
         group = vim.api.nvim_create_augroup("AutoSaveGroup", {clear = true}),
         pattern = "*",
@@ -52,4 +56,6 @@ function M.setup(user_config)
 end
 
 return M
+
+
 
