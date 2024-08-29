@@ -10,7 +10,7 @@ To install autosave.nvim, you can use your favorite plugin manager. For example,
 require("lazy").setup({
     {
         "brianhuster/autosave.nvim",
-        lazy=false,
+        event="InsertEnter",
     },
 })
 require('autosave').setup()
