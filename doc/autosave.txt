@@ -24,7 +24,7 @@ Using lazy.nvim:
 	require("lazy").setup({
 	    {
 	        "brianhuster/autosave.nvim",
-            lazy=false,
+            event="InsertEnter",
 	    },
 	})
 	require('autosave').setup()
