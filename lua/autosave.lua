@@ -37,6 +37,7 @@ end
 
 function M.setup(user_config)
     local config = vim.tbl_deep_extend("force", default_config, user_config or {})
+    vim.opt.autowriteall=true
 
     vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged", "TextChangedI"}, {
         callback = M.save,
