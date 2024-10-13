@@ -2,9 +2,10 @@ local M = {}
 local autosave_enabled = true
 
 local default_config = {
-	command = "AutoSave",  -- Base command name
+	command = "AutoSave", -- Base command name
 	toggle_arg = "toggle", -- Argument to toggle autosave
 	status_arg = "status", -- Argument to check autosave status
+	enabled = true,     -- Enable autosave by default
 }
 
 local function hasFileName()
@@ -41,6 +42,7 @@ end
 
 function M.setup(user_config)
 	local config = vim.tbl_deep_extend("force", default_config, user_config or {})
+	autosave_enabled = config.enabled
 	vim.opt.autowriteall = true
 
 	vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "TextChangedI" }, {
