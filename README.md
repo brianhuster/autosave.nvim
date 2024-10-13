@@ -11,9 +11,9 @@ require("lazy").setup({
     {
         "brianhuster/autosave.nvim",
         event="InsertEnter",
+        opts = {} -- Configuration here
     },
 })
-require('autosave').setup()
 ```
 
 ## Usage
@@ -33,6 +33,7 @@ You can customize the behavior of autosave.nvim by providing a configuration tab
 - `command` (string, default: "AutoSave"): The base command name for autosave.nvim. You can change this if you prefer a different command name.
 - `toggle_arg` (string, default: "toggle"): The argument to toggle autosave. You can change this if you prefer a different argument name.
 - `status_arg` (string, default: "status"): The argument to check autosave status. You can change this if you prefer a different argument name.
+- `enabled` (boolean, default: true): Whether autosave is enabled by default when the plugin is loaded.
 
 Here's an example of how to customize autosave.nvim:
 
