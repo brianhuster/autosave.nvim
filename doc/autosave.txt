@@ -27,21 +27,7 @@ Using lazy.nvim:
             event="InsertEnter",
 	    },
 	})
-	require('autosave').setup()
 <
-
-Using packer.nvim:
->lua
-	require('packer').startup(function()
-	    use {
-	        "brianhuster/autosave.nvim",
-	        config = function()
-	            require('autosave').setup()
-	        end
-	    }
-	end)
-<
-
 Using vim-plug:
 >vim
 	call plug#begin('~/.config/nvim/plugged')
@@ -49,7 +35,6 @@ Using vim-plug:
 	Plug 'brianhuster/autosave.nvim'
 
 	call plug#end()
-	lua require('autosave').setup()
 <
 
 ==============================================================================
@@ -72,9 +57,6 @@ table to the `setup` function.
 Using Lua:
 >lua
 	require('autosave').setup({
-	    command = "MyAutoSave",    -- Command name for autosave.nvim
-	    toggle_arg = "toggleautosave",  -- Argument to toggle autosave
-	    status_arg = "autosavestatus",  -- Argument to check autosave status
 		enabled = true,  -- Enable autosave by default
 	})
 <
@@ -82,9 +64,6 @@ Using Lua:
 Using VimScript:
 >vim
 	let g:autosave_config = {
-	    \ 'command': 'MyAutoSave',
-	    \ 'toggle_arg': 'toggleautosave',
-	    \ 'status_arg': 'autosavestatus',
 	    \ 'enabled': v:true,
 	    \ }
 	lua require('autosave').setup(vim.g.autosave_config)
