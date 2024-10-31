@@ -2,10 +2,7 @@ local M = {}
 local autosave_enabled = true
 
 local default_config = {
-	command = "AutoSave", -- Base command name
-	toggle_arg = "toggle", -- Argument to toggle autosave
-	status_arg = "status", -- Argument to check autosave status
-	enabled = true,     -- Enable autosave by default
+	enabled = true, -- Enable autosave by default
 }
 
 local function hasFileName()
@@ -51,10 +48,10 @@ function M.setup(user_config)
 		pattern = "*",
 	})
 
-	vim.api.nvim_create_user_command(config.command, function(opts)
-			if opts.args == config.toggle_arg then
+	vim.api.nvim_create_user_command('Autosave', function(opts)
+			if opts.args == 'toggle' then
 				M.toggle()
-			elseif opts.args == config.status_arg then
+			elseif opts.args == 'status' then
 				M.status()
 			else
 				vim.notify("Unknown argument: " .. opts.args)
@@ -63,7 +60,7 @@ function M.setup(user_config)
 		{
 			nargs = 1,
 			complete = function(ArgLead, CmdLine, CursorPos)
-				return { config.toggle_arg, config.status_arg }
+				return { 'toggle', 'status' }
 			end
 		})
 end

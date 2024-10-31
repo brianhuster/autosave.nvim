@@ -16,6 +16,12 @@ require("lazy").setup({
 })
 ```
 
+You can also install the plugin from [luarocks](https://github.com/) [rocks.nvim](https://github.com/nvim-neorocks/rocks.nvim) to install autosave.nvim:
+
+```vim
+:Rocks install autosave.nvim
+```
+
 ## Usage
 
 ### Enabling and Disabling Autosave
@@ -30,20 +36,8 @@ To check the current autosave status, you can use the `:AutoSave status` command
 
 You can customize the behavior of autosave.nvim by providing a configuration table when calling the `setup` function. The following options are available:
 
-- `command` (string, default: "AutoSave"): The base command name for autosave.nvim. You can change this if you prefer a different command name.
-- `toggle_arg` (string, default: "toggle"): The argument to toggle autosave. You can change this if you prefer a different argument name.
-- `status_arg` (string, default: "status"): The argument to check autosave status. You can change this if you prefer a different argument name.
 - `enabled` (boolean, default: true): Whether autosave is enabled by default when the plugin is loaded.
 
-Here's an example of how to customize autosave.nvim:
-
-```lua
-require('autosave').setup({
-    command = "AS",
-    toggle_arg = "toggle",
-    status_arg = "status",
-})
-```
 
 ## Contributing
 
