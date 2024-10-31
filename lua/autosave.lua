@@ -52,14 +52,20 @@ function M.setup(user_config)
 	})
 
 	vim.api.nvim_create_user_command(config.command, function(opts)
-		if opts.args == config.toggle_arg then
-			M.toggle()
-		elseif opts.args == config.status_arg then
-			M.status()
-		else
-			vim.notify("Unknown argument: " .. opts.args)
-		end
-	end, { nargs = 1 })
+			if opts.args == config.toggle_arg then
+				M.toggle()
+			elseif opts.args == config.status_arg then
+				M.status()
+			else
+				vim.notify("Unknown argument: " .. opts.args)
+			end
+		end,
+		{
+			nargs = 1,
+			complete = function(ArgLead, CmdLine, CursorPos)
+				return { config.toggle_arg, config.status_arg }
+			end
+		})
 end
 
 return M
