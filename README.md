@@ -1,5 +1,7 @@
 # autosave.nvim
 
+[![LuaRocks](https://img.shields.io/luarocks/v/brianhuster/autosave.nvim?logo=lua&color=purple)](https://luarocks.org/modules/brianhuster/autosave.nvim)
+
 autosave.nvim is a Neovim plugin that provides automatic saving functionality. It allows you to toggle autosave on and off, check the current autosave status, and customize the plugin's behavior.
 
 ## Installation
