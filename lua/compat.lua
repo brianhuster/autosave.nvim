@@ -16,11 +16,15 @@ function M.bufname()
 	end
 end
 
-function M.bo(opt)
+function M.bo(key)
 	if vim.fn.has('nvim') then
-		return vim.bo[opt]
+		return vim.bo[key]
 	else
-		return vim.eval('&' .. opt)
+		if key == "modified" or key == "modifiable" then
+			return vim.eval('&' .. key) == 1 and true or false
+		else
+			return vim.eval('&' .. key)
+		end
 	end
 end
 

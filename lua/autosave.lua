@@ -13,10 +13,11 @@ end
 function M.save()
 	local buftype = compat.bo('buftype')
 	local modified = compat.bo('modified')
+	local modifiable = compat.bo('modifiable')
 	if buftype ~= "" then
 		return
 	end
-	if vim.g.autosave_enabled and hasFileName and modified and modified ~= 0 then
+	if vim.g.autosave_enabled and hasFileName and modifiable and modified then
 		compat.cmd('silent! write')
 	end
 end

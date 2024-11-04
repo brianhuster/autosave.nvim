@@ -1,3 +1,16 @@
+let compatible = v:false
+if has('nvim')
+	let compatible = v:true
+endif
+if has("patch-8.2.1066") && has("lua")
+	let compatible = v:true
+endif
+
+if !compatible
+	echoerr "autosave.vim requires Neovim or Vim >= 8.2.1066 with Lua support"
+	finish
+endif
+
 " Create an autocmd group for autosave
 augroup AutoSaveGroup
 	autocmd!
@@ -33,4 +46,3 @@ endfunction
 
 autocmd BufRead,BufNewFile */autosave.nvim/doc/*.txt set filetype=help
 set autowriteall
-
