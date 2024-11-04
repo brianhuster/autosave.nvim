@@ -1,79 +1,99 @@
-==============================================================================
-CONTENTS						*autosave-contents*
-
-    1. Introduction				|autosave-intro|
-    2. Installation				|autosave-installation|
-    3. Usage					|autosave-usage|
-    4. Customization				|autosave-customization|
-    5. License					|autosave-license|
+*autosave.txt*                                                      *autosave*
 
 ==============================================================================
-1. Introduction					*autosave-intro*
+Table of Contents                                 *autosave-table-of-contents*
 
-autosave.nvim is a Neovim plugin that provides automatic saving functionality.
-It allows you to toggle autosave on and off, check the current autosave status,
-and customize the plugin's behavior.
+1. autosave.nvim                                      |autosave-autosave.nvim|
+  - Installation                         |autosave-autosave.nvim-installation|
+  - Usage                                       |autosave-autosave.nvim-usage|
+  - Contributing                         |autosave-autosave.nvim-contributing|
+2. Links                                                      |autosave-links|
 
 ==============================================================================
-2. Installation					*autosave-installation*
+1. autosave.nvim                                      *autosave-autosave.nvim*
 
-To install `autosave.nvim`, use your favorite plugin manager.
+<https://luarocks.org/modules/brianhuster/autosave.nvim>
 
-Using lazy.nvim:
+autosave.nvim is a Neovim and Vim plugin that provides automatic saving
+functionality. It allows you to toggle autosave on and off, check the current
+autosave status, and customize the plugin’s behavior.
+
+
+INSTALLATION                             *autosave-autosave.nvim-installation*
+
+This plugin requires Neovim or Vim >=8.2 compiled with Lua support. You can
+check if your version of Vim supports Lua by running `:echo has("lua")` in the
+editor.
+
+Using lazy.nvim (recommended) 💤 ~
+
 >lua
-	require("lazy").setup({
-	    {
-	        "brianhuster/autosave.nvim",
+    require("lazy").setup({
+        {
+            "brianhuster/autosave.nvim",
             event="InsertEnter",
-	    },
-	})
+            opts = {} -- Configuration here
+        },
+    })
 <
-Using vim-plug:
+
+rocks.nvim 🪨 ~
+
 >vim
-	call plug#begin('~/.config/nvim/plugged')
-
-	Plug 'brianhuster/autosave.nvim'
-
-	call plug#end()
+    :Rocks install live-preview.nvim
 <
 
-==============================================================================
-3. Usage						*autosave-usage*
+vim-plug 🔌 ~
 
-COMMANDS
-
-                                                *:AS toggle*
-:autosave toggle        Toggle autosave on and off.
-
-                                                *:AS status*
-:autosave status        Check the current autosave status.
-
-==============================================================================
-4. Customization				*autosave-customization*
-
-You can customize the behavior of `autosave.nvim` by providing a configuration
-table to the `setup` function.
-
-Using Lua:
->lua
-	require('autosave').setup({
-		enabled = true,  -- Enable autosave by default
-	})
-<
-
-Using VimScript:
 >vim
-	let g:autosave_config = {
-	    \ 'enabled': v:true,
-	    \ }
-	lua require('autosave').setup(vim.g.autosave_config)
+    Plug 'brianhuster/autosave.nvim' 
 <
 
+Native package (without a plugin manager) 📦 ~
+
+- Neovim
+
+>sh
+    git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.local/share/nvim/site/pack/brianhuster/start/live-preview.nvim
+<
+
+- Vim
+
+
+USAGE                                           *autosave-autosave.nvim-usage*
+
+
+ENABLING AND DISABLING AUTOSAVE ~
+
+To toggle autosave on and off, you can use the `:AutoSave toggle` command. This
+command will enable autosave if it’s currently disabled, and disable it if
+it’s currently enabled.
+
+
+CHECKING AUTOSAVE STATUS ~
+
+To check the current autosave status, you can use the `:AutoSave status`
+command. This command will display a notification indicating whether autosave
+is currently enabled or disabled.
+
+
+CUSTOMIZING AUTOSAVE ~
+
+`vim.g.autosave_enabled` (default : `v:true`) : Set to `v:true` to enable
+autosave by default, or `v:false` to disable autosave by default.
+
+
+CONTRIBUTING                             *autosave-autosave.nvim-contributing*
+
+If you encounter any issues or have suggestions for improvement, please feel
+free to open an issue or submit a pull request on this GitHub repository.
+Goodbye and see you next time!
+
 ==============================================================================
-5. License						*autosave-license*
+2. Links                                                      *autosave-links*
 
-This project is licensed under the MIT License. For more details, see the
-LICENSE file in the project repository.
+1. *LuaRocks*: https://img.shields.io/luarocks/v/brianhuster/autosave.nvim?logo=lua&color=purple
 
-==============================================================================
+Generated by panvimdoc <https://github.com/kdheepak/panvimdoc>
 
+vim:tw=78:ts=8:noet:ft=help:norl:

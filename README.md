@@ -2,11 +2,14 @@
 
 [![LuaRocks](https://img.shields.io/luarocks/v/brianhuster/autosave.nvim?logo=lua&color=purple)](https://luarocks.org/modules/brianhuster/autosave.nvim)
 
-autosave.nvim is a Neovim plugin that provides automatic saving functionality. It allows you to toggle autosave on and off, check the current autosave status, and customize the plugin's behavior.
+autosave.nvim is a Neovim and Vim plugin that provides automatic saving functionality. It allows you to toggle autosave on and off, check the current autosave status, and customize the plugin's behavior.
 
 ## Installation
 
-To install autosave.nvim, you can use your favorite plugin manager. For example, using [lazy.nvim](https://github.com/folke/lazy.nvim):
+This plugin requires Neovim or Vim >=8.2 compiled with Lua support. You can check if your version of Vim supports Lua by running `:echo has("lua")` in the editor.
+
+<details>
+<summary>Using lazy.nvim (recommended) 💤</summary>
 
 ```lua
 require("lazy").setup({
@@ -18,11 +21,35 @@ require("lazy").setup({
 })
 ```
 
-You can also install the plugin from [luarocks](https://github.com/) [rocks.nvim](https://github.com/nvim-neorocks/rocks.nvim) to install autosave.nvim:
+</details>
+
+<details>
+<summary>rocks.nvim 🪨</summary>
 
 ```vim
-:Rocks install autosave.nvim
+:Rocks install live-preview.nvim
 ```
+</details>
+
+<details>
+<summary>vim-plug 🔌</summary>
+
+```vim
+Plug 'brianhuster/autosave.nvim' 
+```
+
+</details>
+
+<details>
+<summary>Native package (without a plugin manager) 📦</summary>
+
+* Neovim
+
+```sh
+git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.local/share/nvim/site/pack/brianhuster/start/live-preview.nvim
+```
+
+* Vim
 
 ## Usage
 
@@ -36,10 +63,7 @@ To check the current autosave status, you can use the `:AutoSave status` command
 
 ### Customizing Autosave
 
-You can customize the behavior of autosave.nvim by providing a configuration table when calling the `setup` function. The following options are available:
-
-- `enabled` (boolean, default: true): Whether autosave is enabled by default when the plugin is loaded.
-
+`vim.g.autosave_enabled` (default : `v:true`) : Set to `v:true` to enable autosave by default, or `v:false` to disable autosave by default.
 
 ## Contributing
 
