@@ -18,7 +18,7 @@ endif
 " Create an autocmd group for autosave
 augroup AutoSaveGroup
 	autocmd!
-	autocmd InsertLeave,TextChanged,TextChangedI * call v:lua.require'autosave'.save()
+	autocmd InsertLeave,TextChanged,TextChangedI * lua require'autosave'.save()
 augroup END
 
 " Create a user command for Autosave
