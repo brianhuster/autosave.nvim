@@ -1,4 +1,4 @@
-local compat = require('compat')
+local compat = require('autosave.compat')
 
 local M = {}
 if not vim.g.autosave_enabled then

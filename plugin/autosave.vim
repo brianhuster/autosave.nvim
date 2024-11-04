@@ -11,6 +11,10 @@ if !compatible
 	finish
 endif
 
+if !exists('g:autosave_enabled')
+	let g:autosave_enabled = v:true
+endif
+
 " Create an autocmd group for autosave
 augroup AutoSaveGroup
 	autocmd!
