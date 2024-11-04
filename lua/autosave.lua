@@ -42,7 +42,7 @@ function M.status()
 end
 
 function M.setup(user_config)
-	if vim.fn.has('nvim') == 0 then
+	if not check(vim.fn.has('nvim')) then
 		print("require('autosave').setup() is only supported in Neovim")
 		return
 	end
