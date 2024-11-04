@@ -1,32 +1,23 @@
+local compat = require('compat')
+
 local M = {}
 if not vim.g.autosave_enabled then
 	vim.g.autosave_enabled = true
 end
 
-if not vim.cmd then
-	vim.cmd = vim.command
-end
-
 local function hasFileName()
-	local filename = vim.fn.expand("%:t")
+	local filename = compat.bufname()
 	return filename ~= "" or filename ~= "[No Name]"
 end
 
 function M.save()
-	local buftype
-	local modified
-	if vim.fn.has('nvim') == 1 then
-		buftype = vim.bo.buftype
-		modified = vim.bo.modified
-	else
-		buftype = vim.eval("&buftype")
-		modified = vim.eval("&modified")
-	end
+	local buftype = compat.bo('buftype')
+	local modified = compat.bo('modified')
 	if buftype ~= "" then
 		return
 	end
 	if vim.g.autosave_enabled and hasFileName and modified and modified ~= 0 then
-		vim.cmd('silent! write')
+		compat.cmd('silent! write')
 	end
 end
 
