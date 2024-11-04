@@ -60,7 +60,19 @@ function M.setup(user_config)
 		{
 			nargs = 1,
 			complete = function(ArgLead, CmdLine, CursorPos)
-				return { 'toggle', 'status' }
+				local subcommands = { 'toggle', 'status' }
+				local subcommand = vim.split(CmdLine, " ")[2]
+				if subcommand == "" then
+					return subcommands
+				elseif subcommand == ArgLead then
+					local suggestions = {}
+					for _, cmd in ipairs(subcommands) do
+						if cmd:match(ArgLead) then
+							table.insert(suggestions, cmd)
+						end
+					end
+					return suggestions
+				end
 			end
 		})
 end
