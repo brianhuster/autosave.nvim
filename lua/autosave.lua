@@ -31,7 +31,7 @@ function M.toggle()
 end
 
 function M.status()
-	if vim.g.autosave_enabled then
+	if check(vim.g.autosave_enabled) then
 		print("Autosave is currently enabled")
 	else
 		print("Autosave is currently disabled")
