@@ -1,4 +1,6 @@
 local compat = require('autosave.compat')
+local check = compat.check
+local vim_not = compat.vim_not
 
 local M = {}
 if not vim.g.autosave_enabled then
@@ -12,8 +14,8 @@ end
 
 function M.save()
 	local buftype = compat.bo('buftype')
-	local modified = compat.bo('modified')
-	local modifiable = compat.bo('modifiable')
+	local modified = check(compat.bo('modified'))
+	local modifiable = check(compat.bo('modifiable'))
 	if buftype ~= "" then
 		return
 	end
@@ -23,8 +25,8 @@ function M.save()
 end
 
 function M.toggle()
-	vim.g.autosave_enabled = not vim.g.autosave_enabled
-	if vim.g.autosave_enabled then
+	vim.g.autosave_enabled = vim_not(vim.g.autosave_enabled)
+	if compat.check(vim.g.autosave_enabled) then
 		print("Autosave enabled")
 	else
 		print("Autosave disabled")

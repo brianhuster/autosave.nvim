@@ -8,6 +8,22 @@ function M.cmd(command)
 	end
 end
 
+function M.check(value)
+	if value == 0 or not value then
+		return false
+	else
+		return true
+	end
+end
+
+function M.vim_not(value)
+	if M.check(value) then
+		return false
+	else
+		return true
+	end
+end
+
 function M.bufname()
 	if vim.fn.has('nvim') then
 		return vim.api.nvim_buf_get_name(0)
@@ -20,11 +36,7 @@ function M.bo(key)
 	if vim.fn.has('nvim') then
 		return vim.bo[key]
 	else
-		if key == "modified" or key == "modifiable" then
-			return vim.eval('&' .. key) == 1 and true or false
-		else
-			return vim.eval('&' .. key)
-		end
+		return vim.eval('&' .. key)
 	end
 end
 
