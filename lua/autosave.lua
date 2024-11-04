@@ -3,9 +3,6 @@ local check = compat.check
 local vim_not = compat.vim_not
 
 local M = {}
-if not vim.g.autosave_enabled then
-	vim.g.autosave_enabled = true
-end
 
 local function hasFileName()
 	local filename = compat.bufname()
@@ -19,7 +16,7 @@ function M.save()
 	if buftype ~= "" then
 		return
 	end
-	if vim.g.autosave_enabled and hasFileName and modifiable and modified then
+	if check(vim.g.autosave_enabled) and hasFileName and modifiable and modified then
 		compat.cmd('silent! write')
 	end
 end
