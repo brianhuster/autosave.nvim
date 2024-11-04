@@ -13,11 +13,18 @@ local function hasFileName()
 end
 
 function M.save()
-	local buftype = vim.fn.has('nvim') == 1 and vim.bo.buftype or vim.eval("&buftype")
+	local buftype
+	local modified
+	if vim.fn.has('nvim') == 1 then
+		buftype = vim.bo.buftype
+		modified = vim.bo.modified
+	else
+		buftype = vim.eval("&buftype")
+		modified = vim.eval("&modified")
+	end
 	if buftype ~= "" then
 		return
 	end
-	local modified = vim.fn.has('nvim') == 1 and vim.bo.modified or vim.eval("&modified")
 	if vim.g.autosave_enabled and hasFileName and modified and modified ~= 0 then
 		vim.cmd('silent! write')
 	end
