@@ -1,7 +1,7 @@
 local M = {}
 
 function M.cmd(command)
-	if vim.fn.has('nvim') then
+	if M.check(vim.fn.has('nvim')) then
 		vim.cmd(command)
 	else
 		vim.command(command)
@@ -25,7 +25,7 @@ function M.vim_not(value)
 end
 
 function M.bufname()
-	if vim.fn.has('nvim') then
+	if M.check(vim.fn.has('nvim')) then
 		return vim.api.nvim_buf_get_name(0)
 	else
 		return vim.buffer().name
@@ -33,7 +33,7 @@ function M.bufname()
 end
 
 function M.bo(key)
-	if vim.fn.has('nvim') then
+	if M.check(vim.fn.has('nvim')) then
 		return vim.bo[key]
 	else
 		return vim.eval('&' .. key)
