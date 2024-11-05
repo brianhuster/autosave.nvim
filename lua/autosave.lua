@@ -1,5 +1,5 @@
 local compat = require('autosave.compat')
-local check = compat.bool
+local bool = compat.bool
 
 local M = {}
 
@@ -10,19 +10,19 @@ end
 
 function M.save()
 	local buftype = compat.option('buftype')
-	local modified = check(compat.option('modified'))
-	local modifiable = check(compat.option('modifiable'))
+	local modified = bool(compat.option('modified'))
+	local modifiable = bool(compat.option('modifiable'))
 	if buftype ~= "" then
 		return
 	end
-	if check(vim.g.autosave_enabled) and hasFileName and modifiable and modified then
+	if bool(vim.g.autosave_enabled) and hasFileName and modifiable and modified then
 		compat.cmd('silent! write')
 	end
 end
 
 function M.toggle()
 	vim.g.autosave_enabled = not bool(vim.g.autosave_enabled)
-	if compat.bool(vim.g.autosave_enabled) then
+	if bool(vim.g.autosave_enabled) then
 		print("Autosave enabled")
 	else
 		print("Autosave disabled")
@@ -30,7 +30,7 @@ function M.toggle()
 end
 
 function M.status()
-	if check(vim.g.autosave_enabled) then
+	if bool(vim.g.autosave_enabled) then
 		print("Autosave is currently enabled")
 	else
 		print("Autosave is currently disabled")
@@ -38,7 +38,7 @@ function M.status()
 end
 
 function M.setup(user_config)
-	if not check(vim.fn.has('nvim')) then
+	if not bool(vim.fn.has('nvim')) then
 		print("require('autosave').setup() is only supported in Neovim")
 		return
 	end
