@@ -1,4 +1,14 @@
-vim.bool = function(value)
+local M = {}
+
+function M.cmd(command)
+	if M.bool(vim.fn.has('nvim')) then
+		vim.cmd(command)
+	else
+		vim.command(command)
+	end
+end
+
+function M.bool(value)
 	if value == 0 or not value then
 		return false
 	else
@@ -6,31 +16,20 @@ vim.bool = function(value)
 	end
 end
 
-if vim.bool(vim.fn.has('nvim')) then
-	if not vim.api.nvim_get_option_value then
-		vim.api.nvim_get_option_value = function(name, opts)
-			return vim.api.nvim_get_option(name)
-		end
-	end
-	return
-end
-
-vim.cmd = vim.command
-
-vim.api = {}
-
-vim.api.nvim_get_option_value = function(name, opts)
-	if opts then
-		if opts.scope == 'local' then
-			return vim.eval('&l:' .. name)
-		else
-			return vim.eval('&' .. name)
-		end
+function M.bufname()
+	if M.bool(vim.fn.has('nvim')) then
+		return vim.api.nvim_buf_get_name(0)
+	else
+		return vim.buffer().fname
 	end
 end
 
---- Get full name of buffer
---- @param number number Buffer number. Or 0 for current buffer.
-function vim.api.nvim_buf_get_name(number)
-	return number == 0 and vim.buffer().name or vim.buffer(number).name
+function M.option(key)
+	if M.bool(vim.fn.has('nvim')) then
+		return vim.o[key]
+	else
+		return vim.eval('&' .. key)
+	end
 end
+
+return M

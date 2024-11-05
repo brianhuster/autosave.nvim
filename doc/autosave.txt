@@ -37,16 +37,16 @@ Using lazy.nvim (recommended) 💤 ~
     })
 <
 
-vim-plug 🔌 ~
-
->vim
-    Plug 'brianhuster/autosave.nvim' 
-<
-
 rocks.nvim 🪨 ~
 
 >vim
     :Rocks install live-preview.nvim
+<
+
+vim-plug 🔌 ~
+
+>vim
+    Plug 'brianhuster/autosave.nvim' 
 <
 
 Native package (without a plugin manager) 📦 ~
@@ -58,10 +58,6 @@ Native package (without a plugin manager) 📦 ~
 <
 
 - Vim
-
->sh
-    git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.vim/pack/brianhuster/start/live-preview.nvim
-<
 
 
 USAGE                                           *autosave-autosave.nvim-usage*
@@ -83,8 +79,8 @@ is currently enabled or disabled.
 
 CUSTOMIZING AUTOSAVE ~
 
-`g:autosave_enabled` (default : `v:true`) : Set to `v:true` to enable autosave
-by default, or `v:false` to disable autosave by default.
+`vim.g.autosave_enabled` (default : `v:true`) : Set to `v:true` to enable
+autosave by default, or `v:false` to disable autosave by default.
 
 
 CONTRIBUTING                             *autosave-autosave.nvim-contributing*
