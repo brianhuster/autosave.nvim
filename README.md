@@ -69,7 +69,7 @@ To check the current autosave status, you can use the `:AutoSave status` command
 
 ### Customizing Autosave
 
-`vim.g.autosave_enabled` (default : `v:true`) : Set to `v:true` to enable autosave by default, or `v:false` to disable autosave by default.
+`g:autosave_enabled` (default : `v:true`) : Set to `v:true` to enable autosave by default, or `v:false` to disable autosave by default.
 
 ## Contributing
 
