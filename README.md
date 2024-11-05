@@ -66,9 +66,21 @@ To toggle autosave on and off, you can use the `:AutoSave toggle` command. This 
 
 To check the current autosave status, you can use the `:AutoSave status` command. This command will display a notification indicating whether autosave is currently enabled or disabled.
 
-### Customizing Autosave
+### Configuration
 
-`vim.g.autosave_enabled` (default : `v:true`) : Set to `v:true` to enable autosave by default, or `v:false` to disable autosave by default.
+* Vimscript
+
+```vim
+g:autosave_enabled = v:true " Enable autosave when the plugin is loaded. Set to v:false to disable autosave, and only enable it when you run the :AutoSave toggle command.
+```
+
+* Lua
+
+```lua
+require("autosave").setup({
+    enabled = true, -- Enable autosave when the plugin is loaded. Set to false to disable autosave, and only enable it when you run the :AutoSave toggle command.
+})
+```
 
 ## Contributing
 
