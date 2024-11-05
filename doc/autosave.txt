@@ -83,8 +83,8 @@ is currently enabled or disabled.
 
 CUSTOMIZING AUTOSAVE ~
 
-`vim.g.autosave_enabled` (default : `v:true`) : Set to `v:true` to enable
-autosave by default, or `v:false` to disable autosave by default.
+`g:autosave_enabled` (default : `v:true`) : Set to `v:true` to enable autosave
+by default, or `v:false` to disable autosave by default.
 
 
 CONTRIBUTING                             *autosave-autosave.nvim-contributing*
