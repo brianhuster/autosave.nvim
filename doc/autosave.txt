@@ -37,16 +37,16 @@ Using lazy.nvim (recommended) 💤 ~
     })
 <
 
-rocks.nvim 🪨 ~
-
->vim
-    :Rocks install live-preview.nvim
-<
-
 vim-plug 🔌 ~
 
 >vim
     Plug 'brianhuster/autosave.nvim' 
+<
+
+rocks.nvim 🪨 ~
+
+>vim
+    :Rocks install live-preview.nvim
 <
 
 Native package (without a plugin manager) 📦 ~
@@ -58,6 +58,10 @@ Native package (without a plugin manager) 📦 ~
 <
 
 - Vim
+
+>sh
+    git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.vim/pack/brianhuster/start/live-preview.nvim
+<
 
 
 USAGE                                           *autosave-autosave.nvim-usage*
