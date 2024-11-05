@@ -51,6 +51,10 @@ git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.local/sh
 
 * Vim
 
+```sh
+git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.vim/pack/brianhuster/start/live-preview.nvim
+```
+
 ## Usage
 
 ### Enabling and Disabling Autosave
