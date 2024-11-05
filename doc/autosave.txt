@@ -59,6 +59,10 @@ Native package (without a plugin manager) 📦 ~
 
 - Vim
 
+>sh
+    git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.vim/pack/brianhuster/start/live-preview.nvim
+<
+
 
 USAGE                                           *autosave-autosave.nvim-usage*
 
