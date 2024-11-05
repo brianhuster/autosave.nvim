@@ -23,13 +23,6 @@ require("lazy").setup({
 
 </details>
 
-<details>
-<summary>rocks.nvim 🪨</summary>
-
-```vim
-:Rocks install live-preview.nvim
-```
-</details>
 
 <details>
 <summary>vim-plug 🔌</summary>
@@ -38,6 +31,14 @@ require("lazy").setup({
 Plug 'brianhuster/autosave.nvim' 
 ```
 
+</details>
+
+<details>
+<summary>rocks.nvim 🪨</summary>
+
+```vim
+:Rocks install live-preview.nvim
+```
 </details>
 
 <details>
@@ -50,6 +51,10 @@ git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.local/sh
 ```
 
 * Vim
+
+```sh
+git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.vim/pack/brianhuster/start/live-preview.nvim
+```
 
 ## Usage
 
