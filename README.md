@@ -6,7 +6,7 @@ autosave.nvim is a Neovim and Vim plugin that provides automatic saving function
 
 # Installation
 
-This plugin requires Neovim >=0.9 or Vim >=8.2 compiled with Lua support. You can check if your version of Vim supports Lua by running `:echo has("lua")` in the editor.
+This plugin requires Vim >= 8.2 with `+lua` or Neovim >= 0.9
 
 <details>
 <summary>Using lazy.nvim (recommended) 💤</summary>
