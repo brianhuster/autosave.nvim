@@ -1,6 +1,8 @@
-autosave-contents	autosave.txt	/*autosave-contents*
-autosave-customization	autosave.txt	/*autosave-customization*
-autosave-installation	autosave.txt	/*autosave-installation*
-autosave-intro	autosave.txt	/*autosave-intro*
-autosave-license	autosave.txt	/*autosave-license*
-autosave-usage	autosave.txt	/*autosave-usage*
+autosave	autosave.txt	/*autosave*
+autosave-autosave.nvim	autosave.txt	/*autosave-autosave.nvim*
+autosave-autosave.nvim-contributing	autosave.txt	/*autosave-autosave.nvim-contributing*
+autosave-autosave.nvim-installation	autosave.txt	/*autosave-autosave.nvim-installation*
+autosave-autosave.nvim-usage	autosave.txt	/*autosave-autosave.nvim-usage*
+autosave-links	autosave.txt	/*autosave-links*
+autosave-table-of-contents	autosave.txt	/*autosave-table-of-contents*
+autosave.txt	autosave.txt	/*autosave.txt*
