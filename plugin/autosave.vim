@@ -1,13 +1,15 @@
 let compatible = v:false
-if has('nvim')
+let min_nvim = '0.9'
+let min_vim = '8.2.0'
+if has('nvim-' .. min_nvim)
 	let compatible = v:true
 endif
-if has("patch-8.2.1066") && has("lua")
+if has("patch-" .. min_vim) && has("lua")
 	let compatible = v:true
 endif
 
 if !compatible
-	echoerr "autosave.vim requires Neovim or Vim >= 8.2.1066 with Lua support"
+	echoerr printf("autosave.vim requires Neovim %s or Vim %s with +lua feature", min_nvim, min_vim)
 	finish
 endif
 

@@ -1,22 +1,22 @@
-local compat = require('autosave.compat')
-local bool = compat.bool
+local nvim = require('autosave.nvim')
+local bool = nvim.bool
 
 local M = {}
 
 local function hasFileName()
-	local filename = compat.bufname()
+	local filename = nvim.buf_get_name()
 	return filename ~= "" or filename ~= "[No Name]"
 end
 
 function M.save()
-	local buftype = compat.option('buftype')
-	local modified = bool(compat.option('modified'))
-	local modifiable = bool(compat.option('modifiable'))
+	local buftype = nvim.eval('&buftype')
+	local modified = bool(nvim.eval('&modified'))
+	local modifiable = bool(nvim.eval('&modifiable'))
 	if buftype ~= "" then
 		return
 	end
 	if bool(vim.g.autosave_enabled) and hasFileName and modifiable and modified then
-		compat.cmd('silent! write')
+		nvim.exec2('silent! write', {})
 	end
 end
 
