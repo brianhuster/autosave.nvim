@@ -16,7 +16,7 @@ function M.save()
 		return
 	end
 	if bool(vim.g.autosave_enabled) and hasFileName and modifiable and modified then
-		nvim.exec2('silent! write')
+		nvim.exec2('silent! write', {})
 	end
 end
 
