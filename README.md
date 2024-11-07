@@ -4,7 +4,7 @@
 
 autosave.nvim is a Neovim and Vim plugin that provides automatic saving functionality. It allows you to toggle autosave on and off, check the current autosave status, and customize the plugin's behavior.
 
-## Installation
+# Installation
 
 This plugin requires Neovim or Vim >=8.2 compiled with Lua support. You can check if your version of Vim supports Lua by running `:echo has("lua")` in the editor.
 
@@ -56,17 +56,17 @@ git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.vim/pack
 ```
 </details>
 
-## Usage
+# Usage
 
-### Enabling and Disabling Autosave
+## Enabling and Disabling Autosave
 
 To toggle autosave on and off, you can use the `:AutoSave toggle` command. This command will enable autosave if it's currently disabled, and disable it if it's currently enabled.
 
-### Checking Autosave Status
+## Checking Autosave Status
 
 To check the current autosave status, you can use the `:AutoSave status` command. This command will display a notification indicating whether autosave is currently enabled or disabled.
 
-### Configuration
+## Configuration
 
 * Vimscript
 
@@ -82,8 +82,8 @@ require("autosave").setup({
 })
 ```
 
-## Contributing
+# Contributing
 
-If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request on this GitHub repository. Goodbye and see you next time!
+If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request on this GitHub repository. 
 
 
