@@ -1,6 +1,6 @@
 let compatible = v:false
 let min_nvim = '0.9'
-let min_vim = '8.2.0'
+let min_vim = '8.2.3288'
 if has('nvim-' .. min_nvim)
 	let compatible = v:true
 endif
