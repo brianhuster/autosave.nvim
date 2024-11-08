@@ -44,6 +44,24 @@ function M.execute(args)
 	end
 end
 
+function M.cmdlineComplete(_A)
+	local ArgLead = _A[1]
+	local CmdLine = _A[2]
+	local subcommands = { "on", "off", "toggle", "status" }
+	local subcommand = vim.fn.split(CmdLine, " ")[2]
+	local completion = {}
+	if not subcommand then
+		completion = subcommands
+	elseif subcommand == ArgLead then
+		for _, value in ipairs(subcommands) do
+			if value:sub(1, #ArgLead) == ArgLead then
+				table.insert(completion, value)
+			end
+		end
+	end
+	return bool(vim.fn.has('nvim')) and completion or vim.list(completion)
+end
+
 --- Check if a buffer can be autosaved
 --- @return boolean
 function M.check_buffer()
