@@ -18,7 +18,7 @@ endif
 " Create an autocmd group for autosave
 augroup AutoSaveGroup
 	autocmd!
-	autocmd BufEnter * lua require'autosave'.check_buffer()
+	autocmd BufRead,BufEnter * lua require'autosave'.check_buffer()
 	autocmd InsertLeave,TextChanged,TextChangedI * lua require'autosave'.save()
 augroup END
 
