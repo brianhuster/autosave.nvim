@@ -5,7 +5,6 @@ local M = {}
 
 function M.save()
 	local autosave_enabled = bool(vim.g.autosave_enabled) and bool(vim.b.autosave_enabled)
-	print("Autosave enabled: " .. tostring(autosave_enabled))
 	local modified = bool(nvim.eval('&modified'))
 	local modifiable = bool(nvim.eval('&modifiable'))
 	if autosave_enabled and modifiable and modified then
