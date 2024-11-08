@@ -57,7 +57,8 @@ function M.check_buffer()
 	for i = 1, #vim.g.autosave_disable_inside_paths do
 		local pattern = vim.g.autosave_disable_inside_paths[i]
 		pattern = vim.fn.expand(pattern)
-		if path:sub(1, #pattern) == pattern then
+		if path:sub(1, #pattern) == pattern and bool(vim.b.autosave_enabled) then
+			print("Disable autosave for this buffer because it is inside " .. pattern)
 			vim.b.autosave_enabled = false
 			return false
 		end
