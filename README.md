@@ -58,13 +58,25 @@ git clone --depth 1 https://github.com/brianhuster/live-preview.nvim ~/.vim/pack
 
 # Usage
 
-## Enabling and Disabling Autosave
+To enable autosave
+```vim
+:Autosave on
+```
 
-To toggle autosave on and off, you can use the `:AutoSave toggle` command. This command will enable autosave if it's currently disabled, and disable it if it's currently enabled.
+To disable autosave
+```vim
+:Autosave off
+```
 
-## Checking Autosave Status
+To toggle autosave
+```vim
+:Autosave toggle
+```
 
-To check the current autosave status, you can use the `:AutoSave status` command. This command will display a notification indicating whether autosave is currently enabled or disabled.
+To check the current autosave status
+```vim
+:Autosave status
+```
 
 ## Configuration
 
@@ -72,13 +84,15 @@ To check the current autosave status, you can use the `:AutoSave status` command
 
 ```vim
 g:autosave_enabled = v:true " Enable autosave when the plugin is loaded. Set to v:false to disable autosave, and only enable it when you run the :AutoSave toggle command.
+g:autosave_disable_inside_paths = [] " A list of paths inside which autosave should be disabled. In Neovim, it is recommended to set this to [stdpath('config')] to disable autosave for files inside your Neovim configuration directory, so that Neovim doesn't reload whenever you type inside your configuration files.
 ```
 
-* Lua
+* Lua (only available in Neovim)
 
 ```lua
 require("autosave").setup({
     enabled = true, -- Enable autosave when the plugin is loaded. Set to false to disable autosave, and only enable it when you run the :AutoSave toggle command.
+    disable_inside_paths = {}, -- A list of paths inside which autosave should be disabled. In Neovim, it is recommended to set this to {vim.fn.stdpath('config')} to disable autosave for files inside your Neovim configuration directory, so that Neovim doesn't reload whenever you type inside your configuration files.
 })
 ```
 
