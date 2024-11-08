@@ -14,6 +14,7 @@ end
 
 function M.on()
 	vim.g.autosave_enabled = true
+	vim.b.autosave_enabled = true
 	print("Autosave enabled")
 end
 
