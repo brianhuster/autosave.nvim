@@ -26,17 +26,7 @@ augroup END
 command! -nargs=1 -complete=customlist,AutosaveComplete Autosave call luaeval("require'autosave'.execute(_A)", [<f-args>])
 
 function! AutosaveComplete(ArgLead, CmdLine, CursorPos) abort
-	let subcommands = ['on', 'off', 'toggle', 'status']
-	let cmd_parts = split(a:CmdLine, ' ')
-	if len(cmd_parts) < 2
-		return subcommands
-	endif
-	let subcommand = cmd_parts[1]
-	if empty(subcommand)
-		return subcommands
-	elseif subcommand == a:ArgLead
-		return filter(subcommands, 'v:val =~ "^' . a:ArgLead . '"')
-	endif
+	return luaeval("require'autosave'.cmdlineComplete(_A)", [a:ArgLead, a:CmdLine, a:CursorPos])
 endfunction
 
 set autowriteall
