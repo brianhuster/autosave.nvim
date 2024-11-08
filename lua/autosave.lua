@@ -68,7 +68,7 @@ function M.check_buffer()
 end
 
 function M.print_status()
-	if bool(vim.g.autosave_enabled) then
+	if bool(vim.g.autosave_enabled) and bool(vim.b.autosave_enabled) then
 		print("Autosave is currently enabled")
 	else
 		print("Autosave is currently disabled")
