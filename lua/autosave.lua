@@ -5,7 +5,6 @@ local M = {}
 
 function M.save()
 	local autosave_enabled = bool(vim.g.autosave_enabled) and bool(vim.b.autosave_enabled)
-	print("Autosave enabled: " .. tostring(autosave_enabled))
 	local modified = bool(nvim.eval('&modified'))
 	local modifiable = bool(nvim.eval('&modifiable'))
 	if autosave_enabled and modifiable and modified then
@@ -15,6 +14,7 @@ end
 
 function M.on()
 	vim.g.autosave_enabled = true
+	vim.b.autosave_enabled = true
 	print("Autosave enabled")
 end
 
@@ -57,7 +57,8 @@ function M.check_buffer()
 	for i = 1, #vim.g.autosave_disable_inside_paths do
 		local pattern = vim.g.autosave_disable_inside_paths[i]
 		pattern = vim.fn.expand(pattern)
-		if path:sub(1, #pattern) == pattern then
+		if path:sub(1, #pattern) == pattern and bool(vim.b.autosave_enabled) then
+			print("Disable autosave for this buffer because it is inside " .. pattern)
 			vim.b.autosave_enabled = false
 			return false
 		end
@@ -67,7 +68,7 @@ function M.check_buffer()
 end
 
 function M.print_status()
-	if bool(vim.g.autosave_enabled) then
+	if bool(vim.g.autosave_enabled) and bool(vim.b.autosave_enabled) then
 		print("Autosave is currently enabled")
 	else
 		print("Autosave is currently disabled")

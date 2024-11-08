@@ -1,13 +1,6 @@
-" Check if the current Vim or Neovim version is compatible
-let compatible = v:false
-let min_nvim = '0.9'
-let min_vim = '8.2.3288'
-if has('nvim-' .. min_nvim)
-	let compatible = v:true
-endif
-if has("patch-" .. min_vim) && has("lua")
-	let compatible = v:true
-endif
+let compatible = luaeval("require'autosave.health'.compatible()")
+let min_vim = luaeval("require'autosave.health'.min_vim")
+let min_nvim = luaeval("require'autosave.health'.min_nvim")
 if !compatible
 	echoerr printf("autosave.vim requires Vim >= %s with +lua feature or Neovim >= %s", min_vim, min_nvim)
 	finish
@@ -25,7 +18,7 @@ endif
 " Create an autocmd group for autosave
 augroup AutoSaveGroup
 	autocmd!
-	autocmd BufEnter * lua require'autosave'.check_buffer()
+	autocmd BufRead,BufEnter * lua require'autosave'.check_buffer()
 	autocmd InsertLeave,TextChanged,TextChangedI * lua require'autosave'.save()
 augroup END
 
