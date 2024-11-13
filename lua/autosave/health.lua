@@ -7,13 +7,11 @@ M.min_vim = '8.2.3288'
 M.min_nvim = '0.9.0'
 
 M.compatible = function()
-	local min_vim = '8.2.3288'
-	local min_nvim = '0.9.0'
 	local compatible = false
-	if bool(vim.fn.has('nvim-' .. min_nvim)) then
+	if bool(vim.fn.has('nvim-' .. M.min_nvim)) then
 		compatible = true
 	end
-	if bool(vim.fn.has("patch-" .. min_vim)) and bool(vim.fn.has("lua")) then
+	if bool(vim.fn.has("patch-" .. M.min_vim)) and bool(vim.fn.has("lua")) then
 		compatible = true
 	end
 	return compatible

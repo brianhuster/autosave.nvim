@@ -1,4 +1,4 @@
-## New features
+## New features :
 
 New configuration options :
 
