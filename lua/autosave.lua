@@ -1,5 +1,6 @@
 local nvim = require('autosave.nvim')
 local bool = nvim.bool
+local isnvim = bool(vim.fn.has('nvim'))
 
 local M = {}
 
@@ -59,7 +60,7 @@ function M.cmdlineComplete(_A)
 			end
 		end
 	end
-	return bool(vim.fn.has('nvim')) and completion or vim.list(completion)
+	return isnvim and completion or vim.list(completion)
 end
 
 --- Check if a buffer can be autosaved
@@ -72,8 +73,9 @@ function M.check_buffer()
 	end
 
 	local path = nvim.buf_get_name()
-	for i = 1, #vim.g.autosave_disable_inside_paths do
-		local pattern = vim.g.autosave_disable_inside_paths[i]
+	local disable_dirs = vim.g.autosave_disable_inside_paths
+	for i = 1, #disable_dirs do
+		local pattern = disable_dirs[i]
 		pattern = vim.fn.expand(pattern)
 		if path:sub(1, #pattern) == pattern then
 			if bool(vim.b.autosave_enabled) then
@@ -96,7 +98,7 @@ function M.print_status()
 end
 
 function M.setup(user_config)
-	if not bool(vim.fn.has('nvim')) then
+	if not isnvim then
 		print("require('autosave').setup() is only supported in Neovim")
 		return
 	end
