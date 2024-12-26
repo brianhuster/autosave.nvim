@@ -80,24 +80,31 @@ To check the current autosave status
 
 ## Configuration
 
-* Vimscript
+```vim
+" Legacy Vimscript
+let g:autosave_enabled = v:true " Enable autosave when the plugin is loaded. Set to v:false to disable autosave, and only enable it when you run the :AutoSave toggle command.
+let g:autosave_disable_inside_paths = [] " A list of paths inside which autosave should be disabled. 
+```
+If you use Lua to configure the plugin, you can use |vim.g| to set these variables. 
+
+## FAQ
+
+### When editing Neovim config files, a message saying "Config changed" keeps appearing. 
+
+This is likely because your package manager (such as `lazy.nvim`) would automatically reload your config when it detects change there. To prevent this, you can disable that behavior of your plugin manager, or just disable autosave when editing your config files.
+
+Using Vimscript: 
 
 ```vim
-g:autosave_enabled = v:true " Enable autosave when the plugin is loaded. Set to v:false to disable autosave, and only enable it when you run the :AutoSave toggle command.
-g:autosave_disable_inside_paths = [] " A list of paths inside which autosave should be disabled. In Neovim, it is recommended to set this to [stdpath('config')] to disable autosave for files inside your Neovim configuration directory, so that Neovim doesn't reload whenever you type inside your configuration files.
+let g:autosave_disable_inside_paths = [ stdpath('config') ]
 ```
 
-* Lua (only available in Neovim)
+Using Lua:
 
 ```lua
-require("autosave").setup({
-    enabled = true, -- Enable autosave when the plugin is loaded. Set to false to disable autosave, and only enable it when you run the :AutoSave toggle command.
-    disable_inside_paths = {}, -- A list of paths inside which autosave should be disabled. In Neovim, it is recommended to set this to {vim.fn.stdpath('config')} to disable autosave for files inside your Neovim configuration directory, so that Neovim doesn't reload whenever you type inside your configuration files.
-})
+vim.g.autosave_disable_inside_paths = { vim.fn.stdpath('config') }
 ```
 
 # Contributing
 
 If you encounter any issues or have suggestions for improvement, please feel free to open an issue or submit a pull request on this GitHub repository. 
-
-
