@@ -104,6 +104,9 @@ CONFIGURATION                                   *autosave-usage-configuration*
 If you use Lua to configure the plugin, you can use |vim.g| to set these
 variables.
 
+If you use Neovim, you can run `:checkhealth autosave` to check your
+configuration.
+
 
 FAQ                                                       *autosave-usage-faq*
 
