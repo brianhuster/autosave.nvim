@@ -87,6 +87,8 @@ let g:autosave_disable_inside_paths = [] " A list of paths inside which autosave
 ```
 If you use Lua to configure the plugin, you can use |vim.g| to set these variables. 
 
+If you use Neovim, you can run `:checkhealth autosave` to check your configuration.
+
 ## FAQ
 
 ### When editing Neovim config files, a message saying "Config changed" keeps appearing. 
