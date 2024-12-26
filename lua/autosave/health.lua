@@ -29,6 +29,10 @@ M.check = function()
 	else
 		health.ok(("Neovim %s is compatible with with autosave.nvim"):format(vimver))
 	end
+
+	health.start('Check configuration')
+	health.info('vim.g.autosave_enabled = ' .. tostring(bool(vim.g.autosave_enabled)))
+	health.info('vim.g.disable_inside_paths = ' .. vim.inspect(vim.g.disable_inside_paths))
 end
 
 return M

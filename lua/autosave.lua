@@ -1,6 +1,7 @@
 local nvim = require('autosave.nvim')
 local bool = nvim.bool
-local isnvim = bool(vim.fn.has('nvim'))
+local fn = vim.fn
+local isnvim = bool(fn.has('nvim'))
 
 local M = {}
 
@@ -49,7 +50,7 @@ function M.cmdlineComplete(_A)
 	local ArgLead = _A[1]
 	local CmdLine = _A[2]
 	local subcommands = { "on", "off", "toggle", "status" }
-	local subcommand = vim.fn.split(CmdLine, " ")[2]
+	local subcommand = fn.split(CmdLine, " ")[2]
 	local completion = {}
 	if not subcommand then
 		completion = subcommands
@@ -76,7 +77,7 @@ function M.check_buffer()
 	local disable_dirs = vim.g.autosave_disable_inside_paths
 	for i = 1, #disable_dirs do
 		local pattern = disable_dirs[i]
-		pattern = vim.fn.expand(pattern)
+		pattern = fn.expand(pattern)
 		if path:sub(1, #pattern) == pattern then
 			if bool(vim.b.autosave_enabled) then
 				print("Disable autosave for this buffer because it is inside " .. pattern)
@@ -97,6 +98,7 @@ function M.print_status()
 	end
 end
 
+---@deprecated
 function M.setup(user_config)
 	if not isnvim then
 		print("require('autosave').setup() is only supported in Neovim")
