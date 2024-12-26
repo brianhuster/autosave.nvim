@@ -31,8 +31,8 @@ M.check = function()
 	end
 
 	health.start('Check configuration')
-	health.info('g:autosave_enabled = ' .. tostring(bool(vim.g.autosave_enabled)))
-	health.info('g:disable_inside_paths = ' .. vim.inspect(vim.g.disable_inside_paths))
+	health.info('vim.g.autosave_enabled = ' .. tostring(bool(vim.g.autosave_enabled)))
+	health.info('vim.g.disable_inside_paths = ' .. vim.inspect(vim.g.disable_inside_paths))
 end
 
 return M
