@@ -21,6 +21,14 @@ functionality. It allows you to toggle autosave on and off, check the current
 autosave status, and customize the plugin’s behavior.
 
 
+  [!NOTE] This plugin will be deprecated because I no longer use it. Also
+  `autosave` can easily be implemented in user side like below, so you
+  shouldn’t need this plugin.
+  >vim
+      set autowriteall
+      au InsertLeavePre,TextChanged,TextChangedP * if &modifiable && !&readonly | silent! update | endif
+  <
+
 ==============================================================================
 2. Installation                                        *autosave-installation*
 
