@@ -4,6 +4,14 @@
 
 autosave.nvim is a Neovim and Vim plugin that provides automatic saving functionality. It allows you to toggle autosave on and off, check the current autosave status, and customize the plugin's behavior.
 
+> [!NOTE]
+> This plugin will be deprecated because I no longer use it. Also `autosave` can easily be implemented in user side like below, so you shouldn't need this plugin.
+> ```vim
+> set autowriteall
+> au InsertLeavePre,TextChanged,TextChangedP * if &modifiable && !&readonly | silent! update | endif
+> ```
+
+
 # Installation
 
 This plugin requires Vim >= 8.2.3288 with `+lua` or Neovim >= 0.9
